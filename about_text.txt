@@ -1,0 +1,7 @@
+<h4>Crédits</h4>
+<p>Ce blog est propulsé par Worpress, il respecte les normes W3C et XHTML strict. </p>
+<p>Le design à été crée Glenn Rotaru et intégré par mes soins.  </p>
+<p>Le contenu de ce blog est sous licence <A href="http://creativecommons.org/licenses/by-sa/2.0/fr/">Créative Commons.</A>  </p>
+
+<p>Les articles & commentaires de ce blog n'engagent que les auteurs de ceux-ci. </p>
+

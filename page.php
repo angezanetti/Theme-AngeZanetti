@@ -1,25 +1,21 @@
-<?php
-/**
- * Page file
- * @package WordPress
- * @subpackage Theme AZ
- */
-get_header(); ?>
-
-<div id="content">
-	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-		<article class="post" id="post-<?php the_ID(); ?>">
+<?php get_header(); ?>
+  <div id="content">
   
-			<h2><?php the_title(); ?></h2>
+  <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+	
+    <div class="post" id="post-<?php the_ID(); ?>">
+        <h2><?php the_title(); ?></h2>
+        <div class="post-content">
+			<?php the_content('<p class="serif">Read the rest of this page &raquo;</p>'); ?>
 
-			<div class="entry">
+			<?php link_pages('<p><strong>Pages:</strong> ', '</p>', 'number'); ?>
+        </div>
+    </div>
+	
+  <?php endwhile; endif; ?>
 
-				<?php the_content(); ?>
+  </div><!--/content -->
 
-				<?php wp_link_pages(array('before' => 'pages: ', 'next_or_number' => 'number')); ?>
-			</div>
-		</article>
+<?php get_sidebar(); ?>
 
-		<?php endwhile; endif; ?>
-</div>
-<?php get_footer(); ?>	
+<?php get_footer(); ?>

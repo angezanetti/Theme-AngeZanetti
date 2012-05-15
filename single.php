@@ -1,29 +1,41 @@
-<?php
-/**
- * Single file
- * @package WordPress
- * @subpackage Theme AZ
- */
-get_header(); ?>
-<div id="content">
+<?php get_header(); ?>
+  <div id="content">
+  
   <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-		<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
-    
-      <h2 class="entry-title"><a title="<?php the_title(); ?>" href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
+  
+    <div class="post" id="post-<?php the_ID(); ?>">
+	  <div class="post-date"><span class="post-month"><?php the_time('M') ?></span> <span class="post-day"><?php the_time('d') ?></span></div>
+	  <div class="post-title">
+	  <h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php the_title(); ?></a></h2>
 
-        <cite class="entry-meta">Publié le <time datetime="<?php echo date(DATE_W3C); ?>" pubdate class="updated"><?php the_time('j F, Y') ?></time>  • <?php the_tags(); ?> </cite>
 
-      <div class="entry">
-				<?php the_content(); ?>
-			</div>
 
-			<?php include (TEMPLATEPATH . '/inc/share.php' ); ?>
+	  </div>
 
-    </article>
-    <?php comments_template(); ?>
-    <?php endwhile; endif; ?>
-</div> <!-- content -->
 
+	  <div class="entry">
+
+		<?php the_content('Read the rest of this entry &raquo;'); ?>
+		<?php link_pages('<p><strong>Pages:</strong> ', '</p>', 'number'); ?>
+		<?php edit_post_link('Edit', '', ''); ?>
+	  </div>		
+
+
+
+
+		<?php comments_template(); ?>
+	
+	  </div><!--/post -->
+		
+			<?php endwhile; else: ?>
+
+		<p>Sorry, no posts matched your criteria.</p>
+
+<?php endif; ?>
+
+  </div><!--/content -->
+
+<?php get_sidebar(); ?>
+  
 <?php get_footer(); ?>
-  
-  
+
