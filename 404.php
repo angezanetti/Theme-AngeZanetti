@@ -1,29 +1,24 @@
-<?php get_header(); ?>
+<?php
+/**
+ * 404 template file
+ * @package WordPress
+ * @subpackage Theme AZ
+ */
 
-	<div id="content">
-<a href="http://angezanetti.com"><img src="http://jedi-star.com/wp-content/uploads/2009/05/uh2.jpg" alt="Error 4O4" /></a>
-		
+get_header(); ?>
 
+<div id="content">
+  <h2>ERROR</h2>
+  <div id="oops">
+    404
+  </div>
+  <p> Oops ! Ce que vous cherchez ne se trouve pas ici .... Peut être que les liens ci dessous pourront vous aider à retrouver votre chemin ! Sinon vous pouvez me poser la question par twitter : <a href="http://twitter.com/@angezanetti">@AngeZanetti</a> je me ferais une joie de vous aider !</p>
+<br />
+  <?php get_search_form(); ?>
 
-
-
-<p>Je suis désolé mais l'adresse n'existe pas.></p>
-
-
-
-
-
-
-<p><br><br>Peut être que les mots clés suivants vous permettront peut être de trouver votre bonheur !! 
-Si aucun de ces cas de figure ne vous enthousiasme un simple clic sur l'image ci dessus vous ramènera à l'accueil :) <br><br> </p>
-
-
-
-<p>   <?php wp_tag_cloud(''); ?>  </p>
-
-
-	</div>
-
-<?php get_sidebar(); ?>
+  <?php the_widget( 'WP_Widget_Recent_Posts', array( 'number' => 10 ), array( 'widget_id' => '404' ) ); ?>
+</div>
 
 <?php get_footer(); ?>
+
+

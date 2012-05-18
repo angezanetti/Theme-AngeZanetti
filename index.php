@@ -1,40 +1,56 @@
-<?php get_header(); ?>
+<?php
+/**
+ * Index file
+ * @package WordPress
+ * @subpackage Theme AZ
+ */
+
+get_header(); ?>
+
+ <div id="main">
   <div id="content">
-  
-  <?php if (have_posts()) : ?>
-  
-  	<?php while (have_posts()) : the_post(); ?>
-  
-    <div class="post" id="post-<?php the_ID(); ?>">
-	  <div class="post-date"><span class="post-month"><?php the_time('M') ?></span> <span class="post-day"><?php the_time('d') ?></span></div>
-	  <div class="post-title">
-	  <h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php the_title(); ?></a></h2>
-		 <!-- <span class="post-comments"><?php comments_popup_link('Réagissez ! &#187;', '1 Commentaire &#187;', '% Commentaires &#187;'); ?></span> -->
-	  </div>
-	  <div class="entry">
-		<?php the_content('Lire la suite &raquo;'); ?>
-<span class="post-comments"><?php comments_popup_link('Réagissez ! &#187;', '1 Commentaire &#187;', '% Commentaires &#187;'); ?></span>
-	  </div>
+    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+      <h2 class="entry-title"><a title="<?php the_title(); ?>" href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
 
+        <cite class="entry-meta">Publié le <time datetime="<?php echo date(DATE_W3C); ?>" pubdate class="updated"><?php the_time('j F, Y') ?></time>  • <?php the_tags(); ?> </cite>
 
-	</div><!--/post -->
+      <div class="entry">
+			  <?php echo improved_trim_excerpt(); ?>
+      </div>
 
-	
-	<?php endwhile; ?>
-	
-	<div class="navigation">
-	  <span class="previous-entries"><?php next_posts_link('Mes anciens articles') ?></span> <span class="next-entries"><?php previous_posts_link('Les articles plus récents') ?></span>
-	</div>
-	
-	<?php else : ?>
-	
-		<h2>Rien...</h2>
-		<p>Désolé mais ce que vous cherchez ne se trouve pas ici...'</p>
-		
-  <?php endif; ?>
-	
-  </div><!--/content -->
-  
-<?php get_sidebar(); ?>
+      <a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>" class="button">Lire la suite &gt;</a>
+	  <?php endwhile; ?>
 
-<?php get_footer(); ?>
+    <?php else : ?>
+
+				<article id="post-0">
+					<header class="entry-header">
+						<h1 class="entry-title"><?php echo "Pas d'articles"; ?></h1>
+					</header><!-- .entry-header -->
+
+					<div class="entry-content">
+						<p><?php echo" Désolé mais nous n'avons pas trouvé de résultats à votre recherche..."; ?></p>
+            <?php /*get_search_form();*/ ?> 
+					</div><!-- .entry-content -->
+				</article><!-- #post-0 -->
+
+			<?php endif; ?>
+
+			</div><!-- #content -->
+      <div id="pages_num"> 
+
+      <?php
+        global $wp_query;
+        $big = 999999999; // need an unlikely integer
+        echo paginate_links( array(
+          'base' => str_replace( $big, '%#%', get_pagenum_link( $big ) ),
+          'format' => '?paged=%#%',
+          'current' => max( 1, get_query_var('paged') ),
+          'total' => $wp_query->max_num_pages
+        ) );
+      ?>
+      </div> <!-- pages_num -->
+
+		</div><!-- #main-->
+
+<?php get_footer(); ?>  
