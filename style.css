@@ -175,7 +175,8 @@ header {
   color: #B3D80E;
 }
 .entry h3 {
-  line-height: 4em;
+  line-height: 1em;
+  padding: 30px;
 }
 .entry-title {
   padding-top: 1em;
