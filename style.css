@@ -503,6 +503,9 @@ input[type="button"] {
   #content {
   width : 80%;
   }
+  iframes {
+  width : 80%;
+  }
   .menu-menuu-container {
   width : 100%;
   }
@@ -528,6 +531,9 @@ input[type="button"] {
     font-size: 14px;
   }  
   #content {
+  width : 80%;
+  }
+  iframes {
   width : 80%;
   }
   .menu-menuu-container {
@@ -557,6 +563,9 @@ input[type="button"] {
   #content {
   width : 80%;
   }
+  iframes {
+  width : 80%;
+  }
   .menu-menuu-container {
   width : 100%;
   }
@@ -582,6 +591,9 @@ input[type="button"] {
     font-size: 12px;
   }
   #content {
+  width : 80%;
+  }
+  iframes {
   width : 80%;
   }
   .menu-menuu-container {
