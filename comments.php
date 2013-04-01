@@ -94,4 +94,11 @@
 </div>
 
 <?php endif; ?>
+    <h3> Pings : </h3>
+<?php if ( have_comments() ) : ?>
+    <ul>
+        <?php wp_list_comments(array('type' => 'pings')); ?>
+    </ul>
+<?php endif; ?>
+
 </section>
