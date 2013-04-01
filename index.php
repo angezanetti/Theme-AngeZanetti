@@ -12,7 +12,7 @@ get_header(); ?>
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
       <h2 class="entry-title"><a title="<?php the_title(); ?>" href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
 
-        <cite class="entry-meta">Publié le <time datetime="<?php echo date(DATE_W3C); ?>" pubdate class="updated"><?php the_time('j F, Y') ?></time>  • <?php the_tags(); ?> </cite>
+        <cite class="entry-meta">Publié le <time datetime="<?php echo date(DATE_W3C); ?>" pubdate class="updated"><?php the_time('j F, Y') ?></time>   <?php comments_number( '', '• 1 commentaire', '• % commentaires' ); ?> • <?php the_tags(); ?> </cite>
 
       <div class="entry">
 			  <?php echo improved_trim_excerpt(); ?>
