@@ -4,6 +4,11 @@
  * @package WordPress
  * @subpackage Theme AZ
  */
+
+// replace the  get_option('url'); request by a hard coded url for less SQL queries
+$myUrl = "http://angezanetti.com";
+////
+
 	if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['SCRIPT_FILENAME']))
 		die ('I see wat u did motherfucker.');
 
@@ -50,11 +55,11 @@
 		<p>You must be <a href="<?php echo wp_login_url( get_permalink() ); ?>">logged in</a> to post a comment.</p>
 	<?php else : ?>
 
-	<form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">
+	<form action="<?php echo $myUrl ?>/wp-comments-post.php" method="post" id="commentform">
 
 		<?php if ( is_user_logged_in() ) : ?>
 
-			<p>Identifié en tant que <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="Déconnexion">Déconnexion &raquo;</a></p>
+			<p>Identifié en tant que <a href="<?php echo $myUrl ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="Déconnexion">Déconnexion &raquo;</a></p>
 
 		<?php else : ?>
 
