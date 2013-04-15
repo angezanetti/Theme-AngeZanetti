@@ -24,7 +24,7 @@ get_header(); ?>
 
             <h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
             
-              <cite class="entry-meta"><time datetime="<?php echo date(DATE_W3C); ?>" pubdate class="updated"><?php the_time('j F, Y') ?></time>  •  <?php the_category(', ') ?>  •  </cite>
+        <cite class="entry-meta">Publié le <time datetime="<?php echo date(DATE_W3C); ?>" pubdate class="updated"><?php the_time('j F, Y') ?></time>   <?php comments_number( '', '• 1 commentaire', '• % commentaires' ); ?> • <?php the_tags(); ?> </cite>
   
 
             <div class="entry">

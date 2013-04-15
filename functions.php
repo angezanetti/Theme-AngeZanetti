@@ -91,3 +91,4 @@ add_action( 'widgets_init', 'twentyeleven_widgets_init' );
 // Remove Wordpress version
 remove_action('wp_head', 'wp_generator');
 
+
