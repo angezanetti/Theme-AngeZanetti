@@ -92,3 +92,11 @@ add_action( 'widgets_init', 'twentyeleven_widgets_init' );
 remove_action('wp_head', 'wp_generator');
 
 
+// replace the default posts feed with feedburner
+function appthemes_custom_rss_feed( $output, $feed ) {
+    if ( strpos( $output, 'comments' ) )
+    return $output;
+
+    return esc_url( 'http://feeds.feedburner.com/AngeZanetti2' );
+}
+add_action( 'feed_link', 'appthemes_custom_rss_feed', 10, 2 );
